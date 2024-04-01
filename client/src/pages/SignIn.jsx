@@ -67,7 +67,7 @@ const SignIn = () => {
       <div className=' pl-11 my-[15px] flex gap-3'>
         <p className='text-white'>Do not have an account?</p>
         <Link to="/sign-up">
-          <span className='text-violet-200 hover:underline '>Sign Up</span>
+          <span className='text-violet-200 hover:underline font-bold '>Sign Up</span>
         </Link>
       </div>
       {error && <p className='text-red-500 mt-5 ml-11'>{error}</p>}

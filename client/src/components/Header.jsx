@@ -11,7 +11,7 @@ const Header = () => {
         <header className='bg-black   shadow-sm  shadow-slate-400'>
             <div className='flex justify-between items-center max-w-6xl mx-auto p-3'>
                 <Link to='/'>
-                    <h1 className='font-bold text-xl  sm:text-2xl flex flex-wrap'>
+                    <h1 className='font-bold text-xl  sm:text-2xl flex flex-wrap hover:opacity-80'>
                         <span className="text-violet-200">Comfort</span>
                         <span className='text-violet-300'>Crib</span>
                     </h1>
@@ -19,7 +19,7 @@ const Header = () => {
 
                 <form className='bg-slate-200 p-1 sm:p-2 rounded-lg flex items-center'>
                     <input type='text' placeholder='Search...' className='bg-transparent focus:outline-none w-24 sm:w-64' />
-                    <IoIosSearch className='text-2xl' />
+                    <IoIosSearch className='text-2xl cursor-pointer' />
                 </form>
 
                 <ul className='flex items-center text-white gap-4'>
