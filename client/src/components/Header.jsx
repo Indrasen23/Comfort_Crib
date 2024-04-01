@@ -1,8 +1,12 @@
 import React from 'react'
 import { IoIosSearch } from "react-icons/io";
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+
+    const { currentUser } = useSelector((state) => state.user);
+
     return (
         <header className='bg-black   shadow-sm  shadow-slate-400'>
             <div className='flex justify-between items-center max-w-6xl mx-auto p-3'>
@@ -21,7 +25,14 @@ const Header = () => {
                 <ul className='flex items-center text-white gap-4'>
                     <Link to='/'><li className='hidden sm:inline hover:text-violet-400'>Home</li></Link>
                     <Link to='/about'><li className='hidden sm:inline hover:text-violet-400'>About</li></Link>
-                    <Link to='/sign-in'><li className=' sm:inline  '><button className='bg-violet-400 px-2 py-1 rounded-md text-white hover:bg-violet-700'>Sign In</button></li></Link>
+
+                    <Link to='/profile'>
+                        {currentUser ? (
+                            <img className='rounded-full h-7 w-7 object-cover cursor-pointer' src={currentUser.avatar} alt='profile' />
+                        ) : (
+                                <li className=' sm:inline  '><button className='bg-violet-400 px-2 py-1 rounded-md text-white hover:bg-violet-700'>Sign In</button></li>
+                        )}
+                    </Link>
                 </ul>
             </div>
         </header>
