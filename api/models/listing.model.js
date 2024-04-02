@@ -14,23 +14,11 @@ const listingSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        regularPrice: {
-            type: Number,
+        sell: {
+            type: Boolean,
             required: true,
         },
-        discountPrice: {
-            type: Number,
-            required: true,
-        },
-        bathrooms: {
-            type: Number,
-            required: true,
-        },
-        bedrooms: {
-            type: Number,
-            required: true,
-        },
-        furnished: {
+        rent: {
             type: Boolean,
             required: true,
         },
@@ -38,12 +26,36 @@ const listingSchema = new mongoose.Schema(
             type: Boolean,
             required: true,
         },
-        type: {
+        furnished: {
+            type: Boolean,
+            required: true,
+        },
+        wifi: {
+            type: Boolean,
+            required: true,
+        },
+        cctv: {
+            type: Boolean,
+            required: true,
+        },
+        geyser: {
+            type: Boolean,
+            required: true,
+        },
+        privateBathroom: {
+            type: Boolean,
+            required: true,
+        },
+        bedrooms: {
+            type: Number,
+            required: true,
+        },
+        regularPrice: {
             type: String,
             required: true,
         },
-        offer: {
-            type: Boolean,
+        discountPrice: {
+            type: String,
             required: true,
         },
         imageUrls: {
