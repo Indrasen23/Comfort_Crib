@@ -1,14 +1,12 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import { useRef, useState, useEffect } from 'react';
-import {
-    getDownloadURL,
-    getStorage,
-    ref,
-    uploadBytesResumable,
-} from 'firebase/storage';
+import { getDownloadURL, getStorage, ref, uploadBytesResumable,} from 'firebase/storage';
 import { app } from '../firebase';
-import { updateUserStart, updateUserSuccess, updateUserFailure } from '../redux/user/userSlice';
+import {
+    updateUserStart, updateUserSuccess, updateUserFailure,
+    deleteUserFailure, deleteUserStart, deleteUserSuccess, } from '../redux/user/userSlice';
+
 import { useDispatch } from 'react-redux';
 
 
@@ -88,6 +86,23 @@ const Profile = () => {
         }
     };
 
+    const handleDeleteUser = async () => {
+        try {
+            dispatch(deleteUserStart());
+            const res = await fetch(`/api/user/delete/${currentUser._id}`, {
+                method: 'DELETE',
+            });
+            const data = await res.json();
+            if (data.success === false) {
+                dispatch(deleteUserFailure(data.message));
+                return;
+            }
+            dispatch(deleteUserSuccess(data));
+        } catch (error) {
+            dispatch(deleteUserFailure(error.message));
+        }
+    };
+
     return (
         <div className='bg-zinc-800   mx-auto  w-[400px] md:w-[600px] border border-gray-400 my-8 pb-8 rounded-lg shadow-sm'>
             <h1 className='text-3xl font-semibold text-center my-7 text-white'>Profile</h1>
@@ -116,7 +131,7 @@ const Profile = () => {
                 <button disabled={loading} className='bg-violet-500 text-white rounded-lg p-3 uppercase font-bold hover:opacity-90 disabled:opacity-75'> {loading ? 'Loading...' : 'Update'} </button>
             </form>
             <div className="flex justify-between mt-5 max-w-[85%] mx-auto">
-                <span className='text-red-700 cursor-pointer hover:text-red-400'>Delete account</span>
+                <span onClick={handleDeleteUser} className='text-red-700 cursor-pointer hover:text-red-400'>  Delete account </span>
                 <span className='text-red-700 cursor-pointer hover:text-red-400'>Sign out</span>
             </div>
 
