@@ -21,6 +21,8 @@ const Profile = () => {
     const [formData, setFormData] = useState({});
     // console.log(formData)
     const [updateSuccess, setUpdateSuccess] = useState(false);
+    const [showListingsError, setShowListingsError] = useState(false);
+    const [userListings, setUserListings] = useState([]);
     const dispatch = useDispatch();
 
     // firebase storage
@@ -107,7 +109,7 @@ const Profile = () => {
     const handleSignOut = async () => {
 
         try {
-            dispatch(signOutUserStart())
+            dispatch(signOutUserStart());
             const res = await fetch('/api/auth/signout');
             const data = await res.json();
             if (data.success === false) {
@@ -118,7 +120,23 @@ const Profile = () => {
         } catch (error) {
             dispatch(signOutUserFailure(data.message));
         }
-    }
+    };
+
+    const handleShowListings = async () => {
+        try {
+            setShowListingsError(false);
+            const res = await fetch(`/api/user/listings/${currentUser._id}`);
+            const data = await res.json();
+            if (data.success === false) {
+                setShowListingsError(true);
+                return;
+            }
+
+            setUserListings(data);
+        } catch (error) {
+            setShowListingsError(true);
+        }
+    };
 
     return (
         <div className='bg-zinc-800   mx-auto  w-[400px] md:w-[600px] border border-gray-400 my-8 pb-8 rounded-lg shadow-sm'>
@@ -146,7 +164,7 @@ const Profile = () => {
                 <input type="email" placeholder='email' defaultValue={currentUser.email} id='email' className='border p-3 rounded-lg' onChange={handleChange} />
                 <input type="password" placeholder='password' id='password' className='border p-3 rounded-lg' onChange={handleChange} />
                 <button disabled={loading} className='bg-violet-500 text-white rounded-lg p-3 uppercase font-bold hover:opacity-90 disabled:opacity-75'> {loading ? 'Loading...' : 'Update'} </button>
-                <Link className='bg-green-700 font-bold text-white p-3 rounded-lg uppercase text-center hover:opacity-95' to={"/create-listing"}>
+                <Link className='bg-green-700 font-bold text-white p-3 rounded-lg uppercase text-center hover:opacity-85' to={"/create-listing"}>
                     Create Listing
                 </Link>
             </form>
@@ -159,6 +177,46 @@ const Profile = () => {
             <p className='text-green-700 mt-5'>
                 {updateSuccess ? 'User is updated successfully!' : ''}
             </p>
+
+
+            <button onClick={handleShowListings} className='hover:text-green-400   text-green-700 w-full '>
+                Show Listings
+            </button>
+            <p className='text-red-700 mt-5'>
+                {showListingsError ? 'Error showing listings' : ''}
+            </p>
+
+
+            {userListings && userListings.length > 0 &&
+                // if these two conditions are true then show the listing
+                <div className="flex flex-col gap-4 max-w-[90%] mx-auto">
+                    <h1 className='text-center mt-7 text-2xl font-semibold text-white'>Your Listings</h1>
+                    {userListings.map((listing) => (
+                        <div
+                            key={listing._id}
+                            className='border rounded-lg p-3 flex justify-between items-center gap-4'
+                        >
+                            <Link to={`/listing/${listing._id}`}>
+                                <img
+                                    src={listing.imageUrls[0]}
+                                    alt='listing cover'
+                                    className='h-16 w-16 object-contain'
+                                />
+                            </Link>
+                            <Link
+                                className='text-gray-200   font-semibold  hover:underline truncate flex-1'
+                                to={`/listing/${listing._id}`}
+                            >
+                                <p>{listing.name}</p>
+                            </Link>
+
+                            <div className='flex flex-col item-center'>
+                                <button className='text-red-700 uppercase hover:underline'>Delete</button>
+                                <button className='text-green-700 uppercase hover:underline'>Edit</button>
+                            </div>
+                        </div>
+                    ))}
+                </div>}
         </div>
     )
 }
