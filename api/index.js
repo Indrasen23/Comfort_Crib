@@ -5,7 +5,7 @@ import cookieParser from 'cookie-parser';
 import userRouter from './routes/user.route.js';
 import authRouter from './routes/auth.route.js';
 import listingRouter from './routes/listing.route.js';
-
+import path from 'path'
 
 dotenv.config();
 const app = express();
@@ -18,6 +18,8 @@ mongoose.connect(process.env.MONGODB_ATLAS).then(() => {
     console.log(err);
 })
 
+
+const __dirname = path.resolve();
 
 
 app.use(express.json());
@@ -34,6 +36,12 @@ app.use('/api/user', userRouter)
 app.use('/api/auth', authRouter)
 app.use('/api/listing', listingRouter);
 
+
+app.use(express.static(path.join(__dirname, '/client/dist')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'))
+})
 
 // Middleware for sending errors
 app.use((err, req, res, next) => {
