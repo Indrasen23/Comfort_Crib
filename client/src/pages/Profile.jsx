@@ -160,7 +160,8 @@ const Profile = () => {
 
 
     return (
-        <div className='bg-zinc-800   mx-auto  w-[400px] md:w-[600px] border border-gray-400 my-8 pb-8 rounded-lg shadow-sm'>
+        <div className=''>
+            <div className='bg-zinc-800   mx-auto  w-[400px] md:w-[600px] border border-gray-400 my-8 pb-8 rounded-lg shadow-sm'>
             <h1 className='text-3xl font-semibold text-center my-7 text-white'>Profile</h1>
             <form onSubmit={handleSubmit} className='mx-auto flex flex-col gap-4 max-w-[85%]'>
 
@@ -199,6 +200,9 @@ const Profile = () => {
                 {updateSuccess ? 'User is updated successfully!' : ''}
             </p>
 
+            </div>
+
+
 
             <button onClick={handleShowListings} className='hover:text-green-400   text-green-700 w-full '>
                 Show Listings
@@ -210,12 +214,12 @@ const Profile = () => {
 
             {userListings && userListings.length > 0 &&
                 // if these two conditions are true then show the listing
-                <div className="flex flex-col gap-4 max-w-[90%] mx-auto">
+                <div className="flex flex-col gap-4 max-w-[800px] w-[80%] mx-auto pb-10">
                     <h1 className='text-center mt-7 text-2xl font-semibold text-white'>Your Listings</h1>
                     {userListings.map((listing) => (
                         <div
                             key={listing._id}
-                            className='border rounded-lg p-3 flex justify-between items-center gap-4'
+                            className='border rounded-lg p-3 flex justify-between items-center gap-4 '
                         >
                             <Link to={`/listing/${listing._id}`}>
                                 <img

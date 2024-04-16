@@ -54,12 +54,12 @@ export default function Home() {
   return (
     <div>
       {/* top */}
-      <div className='flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto '>
+      <div className='flex flex-col gap-6 p-16 px-3 max-w-6xl mx-auto '>
         <h1 className='text-violet-400 text-3xl lg:text-5xl'>
           <span className='text-violet-500 font-bold  '>ComfortCrib </span>
           <span className='opacity-80 '>Where comfort meets Convenience!</span>
         </h1>
-        <div className='text-gray-200 text-2xl sm:text-4xl text-center my-2'>
+        <div className='text-gray-200 text-2xl sm:text-4xl text-center my-1'>
           <ReactTyped
             className=""
             strings={[
@@ -72,14 +72,14 @@ export default function Home() {
             loop={true}
           />
         </div>
-        <button className='p-3 border border-gray-500  sm:w-[300px] mx-auto rounded-lg bg-violet-700 hover:opacity-85 '>
+
         <Link
           to={'/search'}
             className='text-center text-sm sm:text-lg text-white font-bold '
         >
-         Let's get started... 
+          <p className='  sm:w-[300px] mx-auto rounded-lg text-green-600  hover:opacity-85'>Let's get started... </p>
           </Link>
-        </button> 
+       
       </div>
 
       {/* swiper */}

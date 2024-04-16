@@ -10,6 +10,7 @@ import CreateListing from './pages/CreateListing.jsx';
 import UpdateListing from './pages/UpdateListing.jsx';
 import Listing from './pages/Listing.jsx'
 import Search from './pages/Search';
+import Footer from "./pages/Footer.jsx"
 
 
 
@@ -30,10 +31,11 @@ export default function App() {
           {/* someone who is not authenticated will not be able to see it */}
           <Route path='/profile' element={<Profile />} />
           <Route path='/create-listing' element={<CreateListing />} />
-          <Route path='/update-listing/:listingId' element={<UpdateListing />}/>
+          <Route path='/update-listing/:listingId' element={<UpdateListing />} />
         </Route>
 
       </Routes>
+      <Footer />
       </BrowserRouter>
 
   )

@@ -58,6 +58,14 @@ export default function Listing() {
     }, [params.listingId]); // update it only when listingId is updated
     console.log(loading);
 
+
+    const openGoogleMaps = () => {
+        const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(listing.address)}`;
+        window.open(googleMapsUrl, "_blank");
+    };
+
+
+
     return (
         <main className='text-white'>
             {loading && <p className='text-center my-7 text-2xl'>Loading...</p>}
@@ -111,7 +119,7 @@ export default function Listing() {
                         </p>
 
 
-                        <p className='flex items-center mt-6 gap-2 text-gray-200  text-sm hover:underline cursor-pointer'>
+                        <p onClick={openGoogleMaps} className='flex items-center mt-6 gap-2 text-gray-200  text-sm hover:underline cursor-pointer'>
                             <FaMapMarkerAlt className='text-green-400  ' />
                             {listing.address}
                         </p>

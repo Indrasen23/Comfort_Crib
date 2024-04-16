@@ -3,6 +3,12 @@ import { MdLocationOn } from 'react-icons/md';
 import { FaWifi, FaBed } from 'react-icons/fa';
 
 export default function ListingItem({ listing }) {
+
+    const openGoogleMaps = () => {
+        const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(listing.address)}`;
+        window.open(googleMapsUrl, "_blank");
+    };
+
     return (
         <div className='bg-white shadow-md hover:shadow-lg transition-shadow  overflow-hidden rounded-lg w-full sm:w-[315px]'>
             <Link to={`/listing/${listing._id}`}>
@@ -20,7 +26,7 @@ export default function ListingItem({ listing }) {
                         {listing.name}
                     </p>
                     
-                    <div className='flex items-center gap-1'>
+                    <div onClick={openGoogleMaps} className='flex items-center gap-1'>
                         <MdLocationOn className='h-4 w-4 text-green-700' />
                         <p className='text-sm text-gray-600 truncate w-full hover:underline'>
                             {listing.address}
