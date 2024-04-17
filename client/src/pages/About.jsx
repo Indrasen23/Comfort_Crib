@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import creator1 from ".././assets/creator1.jpeg";
 import creator2 from ".././assets/creator2.jpg";
@@ -69,10 +68,10 @@ export default function About() {
                 </ul>
               </div>
               <div>
-                <p>I'm a passionate MERN stack developer with a knack for crafting robust and efficient web applications. With a strong
+                <p>I am a passionate MERN stack developer with a knack for crafting robust and efficient web applications. With a strong
                   foundation in JavaScript, I specialize in building dynamic and responsive websites using MongoDB, Express.js, React.js, and Node.js.</p>
                 <p>My journey into the world of web development began with a deep curiosity and a desire to create meaningful digital experiences.
-                  I've honed my skills through hands-on projects and continuous learning, allowing me to stay updated with the latest trends and technologies in the industry.
+                  I have honed my skills through hands-on projects and continuous learning, allowing me to stay updated with the latest trends and technologies in the industry.
                 </p>
                 
                 
@@ -99,8 +98,8 @@ export default function About() {
                 </ul>
               </div>
               <div>
-                <p>I'm a Mechanical Engineering student at the National Institute of Technology, Kurukshetra, with a passion for technology and a knack for problem-solving. I'm an enthusiastic MERN stack developer dedicated to creating powerful and scalable web solutions. Armed with a solid grasp of JavaScript, I excel in developing interactive and adaptive websites leveraging MongoDB, Express.js, React.js, and Node.js.</p>
-                <p>My venture into web development was fueled by an innate curiosity and a passion for crafting impactful online experiences. I've sharpened my expertise through practical projects and ongoing education, ensuring I remain at the forefront of the ever-evolving web development landscape.</p>
+                <p>I am a Mechanical Engineering student at the National Institute of Technology, Kurukshetra, with a passion for technology and a knack for problem-solving. I am an enthusiastic MERN stack developer dedicated to creating powerful and scalable web solutions. Armed with a solid grasp of JavaScript, I excel in developing interactive and adaptive websites leveraging MongoDB, Express.js, React.js, and Node.js.</p>
+                <p>My venture into web development was fueled by an innate curiosity and a passion for crafting impactful online experiences. I have sharpened my expertise through practical projects and ongoing education, ensuring I remain at the forefront of the ever-evolving web development landscape.</p>
                 
                 
               </div>
@@ -126,10 +125,10 @@ export default function About() {
                 </ul>
               </div>
               <div>
-                <p>I'm a passionate MERN stack developer with a knack for crafting robust and efficient web applications. With a strong
+                <p> am a passionate MERN stack developer with a knack for crafting robust and efficient web applications. With a strong
                   foundation in JavaScript, I specialize in building dynamic and responsive websites using MongoDB, Express.js, React.js, and Node.js.</p>
                 <p>My journey into the world of web development began with a deep curiosity and a desire to create meaningful digital experiences.
-                  I've honed my skills through hands-on projects and continuous learning, allowing me to stay updated with the latest trends and technologies in the industry.
+                  I have honed my skills through hands-on projects and continuous learning, allowing me to stay updated with the latest trends and technologies in the industry.
                 </p>
                 
                 

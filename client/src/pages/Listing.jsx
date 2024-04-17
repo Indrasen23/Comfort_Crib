@@ -110,13 +110,13 @@ export default function Listing() {
 
 
                     <div className='flex text-white  flex-col max-w-4xl mx-auto p-3 my-7 gap-4'>
-                        <p className='flex flex-col text-4xl font-bold'>
+                        <div className='flex flex-col text-4xl font-bold'>
                             <div className='pb-4 '> {listing.name} </div>
                             <div className='text-sm  font-medium sm:flex '>
                                 <div className='pr-8 text-red-400 opacity-80'>{`Regular Price - ${listing.regularPrice.toLocaleString('en-IN', { style: 'currency', currency: 'INR' })}`} {listing.type === 'rent' && ' / month'}</div>
                                 <div className='text-green-500'>{`Dicounted Price - ${listing.discountPrice.toLocaleString('en-IN', { style: 'currency', currency: 'INR' })}`} {listing.type === 'rent' && ' / month'}</div>
                             </div>
-                        </p>
+                        </div>
 
 
                         <p onClick={openGoogleMaps} className='flex items-center mt-6 gap-2 text-gray-200  text-sm hover:underline cursor-pointer'>
