@@ -9,7 +9,7 @@ import { ReactTyped } from "react-typed";
 
 
 export default function Home() {
-  const [offerListings, setOfferListings] = useState([]);
+  // const [offerListings, setOfferListings] = useState([]);
   const [saleListings, setSaleListings] = useState([]);
   const [rentListings, setRentListings] = useState([]);
   SwiperCore.use([Navigation]);
@@ -17,16 +17,16 @@ export default function Home() {
 
 
   useEffect(() => {
-    const fetchOfferListings = async () => {
-      try {
-        const res = await fetch('/api/listing/get?offer=true&limit=4');
-        const data = await res.json();
-        setOfferListings(data);
-        fetchRentListings();
-      } catch (error) {
-        console.log(error);
-      }
-    };
+    // const fetchOfferListings = async () => {
+    //   try {
+    //     const res = await fetch('/api/listing/get?offer=true&limit=4');
+    //     const data = await res.json();
+    //     setOfferListings(data);
+    //     fetchRentListings();
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // };
     const fetchRentListings = async () => {
       try {
         const res = await fetch('/api/listing/get?type=rent&limit=4');
@@ -44,10 +44,11 @@ export default function Home() {
         const data = await res.json();
         setSaleListings(data);
       } catch (error) {
-        log(error);
+        console.log(error);
       }
     };
-    fetchOfferListings();
+    // fetchOfferListings();
+    fetchRentListings();
   }, []);
 
 
@@ -77,17 +78,17 @@ export default function Home() {
           to={'/search'}
             className='text-center text-sm sm:text-lg text-white font-bold '
         >
-          <p className='  sm:w-[300px] mx-auto rounded-lg text-green-600  hover:opacity-85'>Let's get started... </p>
+          <p className='  sm:w-[300px] mx-auto rounded-lg text-green-600  hover:opacity-85'>{`Let's`} get started... </p>
           </Link>
        
       </div>
 
       {/* swiper */}
       <Swiper navigation>
-        {offerListings &&
-          offerListings.length > 0 &&
-          offerListings.map((listing) => (
-            <SwiperSlide key={listing._id || index} >
+        {saleListings &&
+          saleListings.length > 0 &&
+          saleListings.map((listing) => (
+            <SwiperSlide key={listing._id || 1} >
               <div
                 style={{
                   background: `url(${listing.imageUrls[0]}) center no-repeat`,
@@ -103,14 +104,14 @@ export default function Home() {
       {/* listing results for offer, sale and rent */}
 
       <div className='max-w-6xl mx-auto p-3 flex flex-col gap-8 my-10'>
-        {offerListings && offerListings.length > 0 && (
+        {saleListings && saleListings.length > 0 && (
           <div className=''>
             <div className='my-3'>
               <h2 className='text-2xl font-semibold text-gray-200'>Recent offers</h2>
               <Link className='text-sm text-blue-400 hover:underline' to={'/search?offer=true'}>Show more offers</Link>
             </div>
             <div className='flex flex-wrap gap-4'>
-              {offerListings.map((listing) => (
+              {saleListings.map((listing) => (
                 <ListingItem listing={listing} key={listing._id} />
               ))}
             </div>
