@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
 import { MdLocationOn } from 'react-icons/md';
 import { FaWifi, FaBed } from 'react-icons/fa';
+import PropTypes from 'prop-types';
+
+
 
 export default function ListingItem({ listing }) {
 
@@ -62,3 +65,19 @@ export default function ListingItem({ listing }) {
         </div>
     );
 }
+
+
+
+ListingItem.propTypes = {
+    listing: PropTypes.shape({
+        _id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        address: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        discountPrice: PropTypes.number.isRequired,
+        type: PropTypes.oneOf(['rent', 'sale']).isRequired,
+        bedrooms: PropTypes.number.isRequired,
+        wifi: PropTypes.bool.isRequired,
+        imageUrls: PropTypes.arrayOf(PropTypes.string).isRequired,
+    }).isRequired,
+};

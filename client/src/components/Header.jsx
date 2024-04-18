@@ -1,4 +1,3 @@
-import React from 'react'
 import { IoIosSearch } from "react-icons/io";
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux';
@@ -26,7 +25,7 @@ const Header = () => {
         if (searchTermFromUrl) {
             setSearchTerm(searchTermFromUrl);
         }
-    }, [location.search]);
+    }, []);
 
 
     return (

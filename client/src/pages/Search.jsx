@@ -72,7 +72,7 @@ export default function Search() {
         };
 
         fetchListings();
-    }, [location.search]);
+    }, []);
 
     const handleChange = (e) => {
         if (
