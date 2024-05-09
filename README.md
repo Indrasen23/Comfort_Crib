@@ -39,8 +39,8 @@ Tech Stack -> MERN
 **Responsive Design**
 • Mobile Optimization
 • Cross-Device Compatibility
-![Screenshot 2024-05-09 190523](https://github.com/Indrasen23/Comfort_Crib/assets/126501057/c2924617-c033-438d-983e-d84ee7a68bfd)
-![Screenshot 2024-05-09 190538](https://github.com/Indrasen23/Comfort_Crib/assets/126501057/63e02859-3466-4d60-a48e-b342dc6494e5)
+
+![Screenshot 2024-05-09 190523](https://github.com/Indrasen23/Comfort_Crib/assets/126501057/c2924617-c033-438d-983e-d84ee7a68bfd)![Screenshot 2024-05-09 190538](https://github.com/Indrasen23/Comfort_Crib/assets/126501057/63e02859-3466-4d60-a48e-b342dc6494e5)
 
 
 
