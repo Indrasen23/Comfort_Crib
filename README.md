@@ -13,7 +13,8 @@ Tech Stack -> MERN
 → Node.js
 
 ![Screenshot 2024-05-09 180134](https://github.com/Indrasen23/Comfort_Crib/assets/126501057/49a5ae1a-1b7f-4565-a95c-076cbac19955)
-![Screenshot 2024-05-09 192447](https://github.com/Indrasen23/Comfort_Crib/assets/126501057/fe2fe779-35ba-4d03-9b6b-5508e9a01181)
+![Screenshot 2024-05-09 192447](https://github.com/Indrasen23/Comfort_Crib/assets/126501057/e3b5b83c-c890-4e87-96b6-b585806d8748)
+
 
 
 **User Authentication**
