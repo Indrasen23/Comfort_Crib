@@ -75,32 +75,32 @@ export default function Search() {
     }, []);
     */
     useEffect(() => {
-        fetchListings(); // Fetch listings whenever sidebardata changes
-    }, [sidebardata]); // Trigger re-render when sidebardata changes
-
-    const fetchListings = async () => {
-        setLoading(true);
-        setShowMore(false);
-        const urlParams = new URLSearchParams();
-        urlParams.set('searchTerm', sidebardata.searchTerm);
-        urlParams.set('type', sidebardata.type);
-        urlParams.set('parking', sidebardata.parking);
-        urlParams.set('furnished', sidebardata.furnished);
-        urlParams.set('wifi', sidebardata.wifi);
-        urlParams.set('privateBathroom', sidebardata.privateBathroom);
-        urlParams.set('sort', sidebardata.sort);
-        urlParams.set('order', sidebardata.order);
-        const searchQuery = urlParams.toString();
-        const res = await fetch(`/api/listing/get?${searchQuery}`);
-        const data = await res.json();
-        if (data.length > 8) {
-            setShowMore(true);
-        } else {
+        const fetchListings = async () => {
+            setLoading(true);
             setShowMore(false);
-        }
-        setListings(data);
-        setLoading(false);
-    };
+            const urlParams = new URLSearchParams();
+            urlParams.set('searchTerm', sidebardata.searchTerm);
+            urlParams.set('type', sidebardata.type);
+            urlParams.set('parking', sidebardata.parking);
+            urlParams.set('furnished', sidebardata.furnished);
+            urlParams.set('wifi', sidebardata.wifi);
+            urlParams.set('privateBathroom', sidebardata.privateBathroom);
+            urlParams.set('sort', sidebardata.sort);
+            urlParams.set('order', sidebardata.order);
+            const searchQuery = urlParams.toString();
+            const res = await fetch(`/api/listing/get?${searchQuery}`);
+            const data = await res.json();
+            if (data.length > 8) {
+                setShowMore(true);
+            } else {
+                setShowMore(false);
+            }
+            setListings(data);
+            setLoading(false);
+        };
+
+        fetchListings();
+    }, [sidebardata]);
 
 
     const handleChange = (e) => {
