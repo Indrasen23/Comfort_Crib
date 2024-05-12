@@ -1,4 +1,4 @@
-                                                                            **COMFORT CRIB**
+                                                                COMFORT CRIB
   Welcome to ComfortCrib, your trusted partner in the real estate market. We specialize in helping clients buy, sell, and rent properties in the most desirable neighborhoods.
 Our experienced professionals are committed to providing exceptional service and making the buying and selling process as smooth as possible. At ComfortCrib,
 we also offer a unique feature to list your property for customers free of cost. Whether you're a first-time buyer or a seasoned investor, we are here to help you every step of the way.
@@ -11,6 +11,11 @@ Tech Stack -> MERN
 → Express.js
 → React.js
 → Node.js
+
+![Screenshot 2024-05-09 180134](https://github.com/Indrasen23/Comfort_Crib/assets/126501057/49a5ae1a-1b7f-4565-a95c-076cbac19955)
+![Screenshot 2024-05-09 192447](https://github.com/Indrasen23/Comfort_Crib/assets/126501057/e3b5b83c-c890-4e87-96b6-b585806d8748)
+
+
 
 **User Authentication**
 • Sign Up
