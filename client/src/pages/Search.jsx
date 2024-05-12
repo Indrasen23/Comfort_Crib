@@ -22,7 +22,7 @@ export default function Search() {
     // console.log(listings);
     const [showMore, setShowMore] = useState(false);
 
-
+    /*
     useEffect(() => {
         const urlParams = new URLSearchParams(location.search);
         const searchTermFromUrl = urlParams.get('searchTerm');
@@ -73,6 +73,35 @@ export default function Search() {
 
         fetchListings();
     }, []);
+    */
+    useEffect(() => {
+        fetchListings(); // Fetch listings whenever sidebardata changes
+    }, [sidebardata]); // Trigger re-render when sidebardata changes
+
+    const fetchListings = async () => {
+        setLoading(true);
+        setShowMore(false);
+        const urlParams = new URLSearchParams();
+        urlParams.set('searchTerm', sidebardata.searchTerm);
+        urlParams.set('type', sidebardata.type);
+        urlParams.set('parking', sidebardata.parking);
+        urlParams.set('furnished', sidebardata.furnished);
+        urlParams.set('wifi', sidebardata.wifi);
+        urlParams.set('privateBathroom', sidebardata.privateBathroom);
+        urlParams.set('sort', sidebardata.sort);
+        urlParams.set('order', sidebardata.order);
+        const searchQuery = urlParams.toString();
+        const res = await fetch(`/api/listing/get?${searchQuery}`);
+        const data = await res.json();
+        if (data.length > 8) {
+            setShowMore(true);
+        } else {
+            setShowMore(false);
+        }
+        setListings(data);
+        setLoading(false);
+    };
+
 
     const handleChange = (e) => {
         if (
@@ -191,7 +220,7 @@ export default function Search() {
                             className='border rounded-lg p-3 text-black'
                         >
                             <option value='regularPrice_desc'>Price high to low</option>
-                            <option value='regularPrice_asc'>Price low to hight</option>
+                            <option value='regularPrice_asc'>Price low to high</option>
                             <option value='createdAt_desc'>Latest</option>
                             <option value='createdAt_asc'>Oldest</option>
                         </select>
